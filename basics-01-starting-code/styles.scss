@@ -1,0 +1,143 @@
+@mixin stripes(
+  $direction,
+  $width-percent,
+  $stripe-color,
+  $stripe-background: #fff
+) {
+  background: repeating-linear-gradient(
+    $direction,
+    $stripe-background,
+    $stripe-background ($width-percent - 1),
+    $stripe-color 1%,
+    $stripe-background $width-percent
+  );
+}
+
+@mixin transform($transformation) {
+  transform: $transformation;
+  -webkit-transform: $transformation;
+  -moz-transform: $transformation;
+  -ms-transform: $transformation;
+  -o-transform: $transformation;
+}
+
+@mixin photo-content {
+  object-fit: cover;
+}
+
+// Variables //
+$ocean-green: #4fc08d;
+$gamboge: #ee9800;
+$winter-sky: #ff0077;
+$paradise-pink: #ec3169;
+$ruby-red: #9b2226;
+$shamrock-green: #1b995e;
+$aero-blue: #d7fdeb;
+$light-gray: #ccc;
+$rich-black-FOGRA-29: #001219;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Jost", "sans serif";
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+}
+
+header {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin: 3rem auto;
+  border-radius: 10px;
+  padding: 1rem;
+  background-color: $ocean-green;
+  color: white;
+  text-align: center;
+  width: 900px;
+  max-width: 900px;
+  &:hover {
+    @include transform(rotate(-180deg));
+  }
+}
+
+ul {
+  padding: 0;
+  margin: 5rem auto;
+  list-style-type: none;
+  border: 10px solid $ruby-red;
+  width: 90%;
+  height: 500px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: space-evenly;
+}
+
+li {
+  border: 2px solid $rich-black-FOGRA-29;
+  background-color: $gamboge;
+  height: 100px;
+  order: 1;
+  flex-basis: 12.5%;
+}
+
+#user-goal {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin: 3rem auto;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  width: 900px;
+  max-width: 900px;
+}
+.flex2 {
+  order: 2;
+  flex-basis: 25%;
+}
+
+h2 {
+  font-size: 2rem;
+  border-bottom: 4px solid $light-gray;
+  color: $ocean-green;
+  margin: 0 0 1rem 0;
+}
+
+p {
+  font-size: 1.25rem;
+  font-weight: bold;
+  border: 1px solid $ocean-green;
+  background-color: $ocean-green;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 25px;
+}
+
+input {
+  font: inherit;
+  border: 1px solid $light-gray;
+}
+:focus {
+  outline: none;
+  border-color: $shamrock-green;
+  background-color: $aero-blue;
+}
+button {
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid $winter-sky;
+  background-color: $winter-sky;
+  color: white;
+  padding: 0.05rem 1rem;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.26);
+}
+:hover :active {
+  background-color: $paradise-pink;
+  border-color: $paradise-pink;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
+}
